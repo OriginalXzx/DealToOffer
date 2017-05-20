@@ -1,5 +1,11 @@
 package xzx.part2.tree;
-
+/**
+ * ¶þ²æËÑË÷Ê÷
+ * @author xzx
+ *
+ * @param <Key>
+ * @param <Value>
+ */
 public class Tree<Key extends Comparable<Key>,Value> {
     private Node root;
     
