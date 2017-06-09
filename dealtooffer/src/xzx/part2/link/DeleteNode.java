@@ -1,5 +1,6 @@
 package xzx.part2.link;
 
+import xzx.part2.link.Link.Node;
 
 /**
  * 删除链表的结点，快速算法
@@ -8,10 +9,7 @@ package xzx.part2.link;
  */
 public class DeleteNode<Item> {
 
-	private class Node{
-		Item item;
-		Node next;
-	}
+	
 	
 	public void deleteNode(Node head,Node toDelete){
 		if(head==null || toDelete == null){

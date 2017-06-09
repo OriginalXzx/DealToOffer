@@ -6,7 +6,7 @@ public class Link<Item> {
     private int N;
     private Node first;
     private Node last;
-	private class Node{
+	public class Node{
 		Item item;
 		Node next;
 	}
@@ -84,12 +84,16 @@ public class Link<Item> {
 			System.out.println(first.item);
 		}
 	}
+	
+	
 	public static void main(String[] args) {
+	   FindKthToTail<String> findKthToTail = new FindKthToTail<String>();
        Link<String> link = new Link<String>();
        link.push("ÎÒ");
        link.push("°®");
        link.push("ÖÐ");
        link.push("¹ú");
+       System.out.println(findKthToTail.findKthToTail2(link.first, 2).item);
        System.out.println(link.first.item);
        link.printLink(link.first);
        
