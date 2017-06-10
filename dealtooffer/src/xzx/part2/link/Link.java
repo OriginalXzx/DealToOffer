@@ -2,6 +2,8 @@ package xzx.part2.link;
 
 import java.util.Iterator;
 
+import xzx.part2.link.Link.Node;
+
 public class Link<Item> {
     private int N;
     private Node first;
@@ -85,6 +87,29 @@ public class Link<Item> {
 		}
 	}
 	
+	/**
+	 * 反转链表，并输出反转后的链表的头结点
+	 * @param head
+	 * @return
+	 */
+	public Node reverseList(Node head){
+		Node reversedHead = null;
+		Node pNode = head;
+		Node pPrev = null;
+		while(pNode != null){
+			Node pNext = pNode.next;
+			if(pNext == null){
+				reversedHead = pNode;
+			}
+			pNode.next = pPrev;
+			pPrev = pNode;
+			pNode = pNext;
+		}
+		
+		return reversedHead;
+		
+	}
+
 	
 	public static void main(String[] args) {
 	   FindKthToTail<String> findKthToTail = new FindKthToTail<String>();
@@ -93,8 +118,9 @@ public class Link<Item> {
        link.push("爱");
        link.push("中");
        link.push("国");
-       System.out.println(findKthToTail.findKthToTail2(link.first, 2).item);
-       System.out.println(link.first.item);
+      /* System.out.println(findKthToTail.findKthToTail2(link.first, 2).item);
+       System.out.println(link.first.item);*/
+       System.out.println(findKthToTail.reverseList(link.first).item);
        link.printLink(link.first);
        
 	}

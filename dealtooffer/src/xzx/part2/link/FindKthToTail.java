@@ -63,5 +63,27 @@ public class FindKthToTail<Item> {
 		return pBehind;
 		
 	}
+	/**
+	 * 反转链表，并输出反转后的链表的头结点
+	 * @param head
+	 * @return
+	 */
+	public Node reverseList(Node head){
+		Node reversedHead = null;
+		Node pNode = head;
+		Node pPrev = null;
+		while(pNode != null){
+			Node pNext = pNode.next;
+			if(pNext == null){
+				reversedHead = pNode;
+			}
+			pNode.next = pPrev;
+			pPrev = pNode;
+			pNode = pNext;
+		}
+		
+		return reversedHead;
+		
+	}
 
 }
