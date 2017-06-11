@@ -109,20 +109,44 @@ public class Link<Item> {
 		return reversedHead;
 		
 	}
+	/**
+	 * 合并两个排序的链表
+	 * @param head1
+	 * @param head2
+	 * @return
+	 */
+	public Node merge(Node head1,Node head2){
+		if(head1 == null){
+			return head2;
+		}else if(head2 == null){
+			return head1;
+		}
+		
+		Node mergeHead = null;
+		if((int)head1.item < (int)head2.item){
+			mergeHead = head1;
+			mergeHead.next = merge(head1.next,head2);
+		}else{
+			mergeHead = head2;
+			mergeHead.next = merge(head1,head2.next);
+		}
+		return mergeHead;
+		
+	}
 
 	
 	public static void main(String[] args) {
-	   FindKthToTail<String> findKthToTail = new FindKthToTail<String>();
-       Link<String> link = new Link<String>();
-       link.push("我");
-       link.push("爱");
-       link.push("中");
-       link.push("国");
-      /* System.out.println(findKthToTail.findKthToTail2(link.first, 2).item);
-       System.out.println(link.first.item);*/
+       Link link = new Link();
+       Link link1 = new Link();
+       link1.push(2);
+       link1.push(4);
+       link1.push(6);
+       link1.push(8);
+       /*System.out.println(findKthToTail.findKthToTail2(link.first, 2).item);
+       System.out.println(link.first.item);
        System.out.println(findKthToTail.reverseList(link.first).item);
-       link.printLink(link.first);
-       
+       link.printLink(link.first);*/
+       link.printLink(link.merge(link.first, link1.first));
 	}
 
 }
