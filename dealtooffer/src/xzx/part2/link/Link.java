@@ -123,6 +123,7 @@ public class Link<Item> {
 		}
 		
 		Node mergeHead = null;
+		System.out.println("head1:"+(int)head1.item+"head2:"+(int)head2.item);
 		if((int)head1.item < (int)head2.item){
 			mergeHead = head1;
 			mergeHead.next = merge(head1.next,head2);
@@ -133,15 +134,19 @@ public class Link<Item> {
 		return mergeHead;
 		
 	}
-
+	
 	
 	public static void main(String[] args) {
        Link link = new Link();
        Link link1 = new Link();
-       link1.push(2);
-       link1.push(4);
-       link1.push(6);
+       link.push(4);
+       link.push(3);
+       link.push(2);
+       link.push(1);
        link1.push(8);
+       link1.push(7);
+       link1.push(6);
+       link1.push(5);
        /*System.out.println(findKthToTail.findKthToTail2(link.first, 2).item);
        System.out.println(link.first.item);
        System.out.println(findKthToTail.reverseList(link.first).item);
