@@ -90,6 +90,40 @@ public class BinaryTreeNode {
 				queue.offer(bitNode.rightChild);// 右孩子入列
 		}
 	}
+	/**
+	 * 判断一棵树是不是另一棵树的子结构
+	 * 递归实现
+	 * @param tree1
+	 * @param tree2
+	 * @return
+	 */
+	public boolean HasSubtree(TreeNode tree1,TreeNode tree2){
+		boolean result = false;
+		if(tree1!=null && tree2!=null){
+			if(tree1.value == tree2.value){
+				result = doesTreeHaveTree(tree1,tree2);
+			}
+			if(!result){
+				result = doesTreeHaveTree(tree1.leftChild,tree2);
+			}
+			if(!result){
+				result = doesTreeHaveTree(tree1.rightChild,tree2);
+			}
+		}
+		return result;
+	}
+
+	private boolean doesTreeHaveTree(TreeNode tree1, TreeNode tree2) {
+		if(tree2 ==null){
+			return true;
+		}
+		if(tree1 == null){
+			return false;
+		}
+		
+		return doesTreeHaveTree(tree1.leftChild, tree2.leftChild) &&
+				doesTreeHaveTree(tree1.rightChild, tree2.rightChild);
+	}
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
