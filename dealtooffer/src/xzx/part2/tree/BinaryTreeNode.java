@@ -71,6 +71,7 @@ public class BinaryTreeNode {
 
 	// 后序遍历打印
 	public static void printTreeByLastOrder(TreeNode node) {
+		
 		if (node != null) {
 			printTreeByLastOrder(node.leftChild);
 			printTreeByLastOrder(node.rightChild);
@@ -124,6 +125,36 @@ public class BinaryTreeNode {
 		return doesTreeHaveTree(tree1.leftChild, tree2.leftChild) &&
 				doesTreeHaveTree(tree1.rightChild, tree2.rightChild);
 	}
+	/**
+	 * 查找一棵树的最小深度
+	 * @param args
+	 */
+	 public int minDepth(TreeNode root) {
+		    if(root!=null){
+		        int left=Integer.MAX_VALUE;
+		        int right=Integer.MAX_VALUE;
+		        if(root.leftChild!=null){
+		            left=minDepth(root.leftChild);
+		        }
+		        if(root.rightChild!=null){
+		            right=minDepth(root.rightChild);
+		        }
+		        if(left<right){
+		            return left+1;
+		        }
+		        else if(left>right){
+		            return right+1;
+		        }
+		        else if(left==right&&left!=Integer.MAX_VALUE){
+		            return left+1;
+		        }
+		        else{
+		            return 1;
+		        }
+		        
+		    }
+		     return 0;   
+		    }
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
