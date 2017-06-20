@@ -155,6 +155,30 @@ public class BinaryTreeNode {
 		    }
 		     return 0;   
 		    }
+	 /**
+	  * Çó¶þ²æÊ÷¾µÏñ
+	  * @return
+	  */
+	 public void MirrorRecursively(TreeNode pNode){
+		if(pNode == null){
+			return;
+		}
+		if(pNode.leftChild==null&&pNode.rightChild==null){
+			return;
+		}
+		TreeNode pTemp = pNode.leftChild;
+		pNode.leftChild = pNode.rightChild;
+		pNode.rightChild = pTemp;
+		 
+		if(pNode.leftChild.leftChild!=null){
+			MirrorRecursively(pNode.leftChild);
+		}
+		 
+		if(pNode.rightChild.rightChild!=null){
+			MirrorRecursively(pNode.rightChild);
+		}
+		 
+	 }
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

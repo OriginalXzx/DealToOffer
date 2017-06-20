@@ -39,8 +39,8 @@ public class Main2 {
 
 	static int maxLine = 1;
 	static int numOfAlive = 0;
-	static char[] ticket = new char[100000];
-	static boolean[] ticketState = new boolean[100000];
+	static char[] ticket = new char[100001];
+	static boolean[] ticketState = new boolean[100001];
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
