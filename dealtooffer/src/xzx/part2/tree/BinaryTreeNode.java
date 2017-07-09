@@ -179,9 +179,44 @@ public class BinaryTreeNode {
 		}
 		 
 	 }
+	 /**
+	  * 判断一个数组是不是某个二叉搜索树的后序遍历
+	  * @param args
+	  */
+	 public static boolean isBelongBST(int[] sequence,int length){
+		if(sequence==null || length==0){
+			return false;
+		}
+		int root = sequence[length-1];
+		int i = 0;
+		for (; i < length - 1; i++) {
+			if(sequence[i] > root){
+				break;
+			}
+		}
+		int j = i;
+		for(;j<length-1;j++){
+			if(sequence[j]<root){
+				return false;
+			}
+		}
+		
+		//判断左子树是不是二叉搜索树
+		boolean left = true;
+		if(i > 0){
+			left = isBelongBST(sequence, i);
+		}
+		boolean right = true;
+		if(i<length-1){
+			int[] rightSequence = Arrays.copyOf(sequence, i);
+			right = isBelongBST(rightSequence, rightSequence.length);
+		}
+		 return (left&&right);
+		 
+	 }
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+		/*Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		int[] pre = new int[n];
 		int[] mid = new int[n];
@@ -197,7 +232,11 @@ public class BinaryTreeNode {
 		printTreeByLastOrder(createByPreAndMidOrder(pre, mid, n));
 		System.out.println();
 		System.out.println("-------	按层次遍历打印----------");
-		levelTraverse(createByPreAndMidOrder(pre, mid, n));
+		levelTraverse(createByPreAndMidOrder(pre, mid, n));*/
+		
+		//测试isBeLongBST
+		int[] arr = {5,7,6,9,11,10,8};
+		System.out.println(isBelongBST(arr, 7));
 		
 	}
 
