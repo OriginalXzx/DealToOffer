@@ -1,5 +1,6 @@
 package xzx.part2.link;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import xzx.part2.link.Link.Node;
@@ -11,6 +12,10 @@ public class Link<Item> {
 	public class Node{
 		Item item;
 		Node next;
+		public Node give(){
+			Node node = new Node();
+			return node;
+		}
 	}
 	public  boolean isEmpty(){
 		return first == null;
@@ -87,6 +92,20 @@ public class Link<Item> {
 		}
 	}
 	
+	public  ArrayList<Integer> printListFromTailToHead(Node listNode) {
+        ArrayList<Integer> list;
+		if(listNode==null){
+            return null;
+        }else{
+           list = new ArrayList<Integer>();
+          if(listNode.next!=null){
+            printListFromTailToHead(listNode.next);
+        }
+          list.add((Integer) listNode.item);
+        }
+        return list;
+    }
+	
 	/**
 	 * 反转链表，并输出反转后的链表的头结点
 	 * @param head
@@ -138,7 +157,7 @@ public class Link<Item> {
 	
 	public static void main(String[] args) {
        Link link = new Link();
-       Link link1 = new Link();
+       /*Link link1 = new Link();
        link.push(4);
        link.push(3);
        link.push(2);
@@ -147,11 +166,11 @@ public class Link<Item> {
        link1.push(7);
        link1.push(6);
        link1.push(5);
-       /*System.out.println(findKthToTail.findKthToTail2(link.first, 2).item);
+       System.out.println(findKthToTail.findKthToTail2(link.first, 2).item);
        System.out.println(link.first.item);
        System.out.println(findKthToTail.reverseList(link.first).item);
-       link.printLink(link.first);*/
-       link.printLink(link.merge(link.first, link1.first));
+       link.printLink(link.first);
+       link.printLink(link.merge(link.first, link1.first));*/
 	}
 
 }
