@@ -78,7 +78,7 @@ public class BinaryTreeNode {
 			System.out.print(node.value + " ");
 		}
 	}
-    //按层次打印
+    //按层次打印,宽度优先遍历
 	public static void levelTraverse(TreeNode TreeNode) {
 		Queue<TreeNode> queue = new LinkedList<TreeNode>();
 		queue.offer(TreeNode);// 从根节点入队列
@@ -216,7 +216,7 @@ public class BinaryTreeNode {
 	 }
 
 	public static void main(String[] args) {
-		/*Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
 		int[] pre = new int[n];
 		int[] mid = new int[n];
@@ -232,12 +232,12 @@ public class BinaryTreeNode {
 		printTreeByLastOrder(createByPreAndMidOrder(pre, mid, n));
 		System.out.println();
 		System.out.println("-------	按层次遍历打印----------");
-		levelTraverse(createByPreAndMidOrder(pre, mid, n));*/
+		levelTraverse(createByPreAndMidOrder(pre, mid, n));
 		
 		//测试isBeLongBST
-		int[] arr = {5,7,6,9,11,10,8};
+		/*int[] arr = {5,7,6,9,11,10,8};
 		System.out.println(isBelongBST(arr, 7));
-		
+		*/
 	}
 
 }

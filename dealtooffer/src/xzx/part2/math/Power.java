@@ -63,12 +63,10 @@ public class Power {
 		if(exponent == 1){
 			return base;
 		}
-		double result = powerWithUnsignedExponent(base, exponent >>1);
-		result *= result;
-		if((exponent & 0x1) == 1){
-			result *= base;
-		}
-		return result;
+		if(exponent == -1){
+            return 1/base;
+        }
+        return powerWithUnsignedExponent(base,exponent/2)*powerWithUnsignedExponent(base,exponent/2)*powerWithUnsignedExponent(base,exponent%2);
 	}
 	//用于判断double值是否等于0
 	public  static boolean equal(double num1,double num2){
