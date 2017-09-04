@@ -10,14 +10,15 @@ public class Solution5 {
          while(sc.hasNext()){
         	 temp[sc.nextInt()] = 1;
          }
-         
+         sc.close();
          String str = "";
          for (int i = 1; i < temp.length; i++) {
 			if(temp[i]==0){
 				str += i;
 			}
 		}
-         
+        long result = Long.parseLong(str);
+        System.out.println(result%7);
 	}
 
 }
